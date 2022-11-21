@@ -10,6 +10,7 @@ app.get('/', (req,res) => {
 });
 
 app.post('/run', (req,res) => {
+   console.log(req.body);
    return res.json(req.body);
 });
 
