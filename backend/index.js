@@ -2,8 +2,11 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 app.get('/', (req,res) => {
-   return res.json({Hello: "world!"});
+   return res.json({GET: "Request!"});
 });
 
 app.post('/run', (req,res) => {
