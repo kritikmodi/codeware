@@ -11,6 +11,7 @@ app.get('/', (req,res) => {
 
 app.post('/run', (req,res) => {
    const {language,code} = req.body;
+   language = "java";
    return res.json({language, code});
 });
 
