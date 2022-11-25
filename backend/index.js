@@ -11,7 +11,7 @@ app.get('/', (req,res) => {
 
 app.post('/run', (req,res) => {
    const {language,code} = req.body;
-   return res.json(req.body);
+   return res.json({language, code});
 });
 
 app.listen(5000, () => {
