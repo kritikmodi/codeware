@@ -13,7 +13,7 @@ app.post('/run', (req,res) => {
    const {language,code} = req.body;
    language = "java";
    
-   if(code===undefined){
+   if(code === undefined){
       return res.status(400).json({success: false, error: "Empty code body!"});
    }
    
