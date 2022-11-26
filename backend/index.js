@@ -12,6 +12,11 @@ app.get('/', (req,res) => {
 app.post('/run', (req,res) => {
    const {language,code} = req.body;
    language = "java";
+   
+   if(code===undefined){
+      return res.status(400);
+   }
+   
    return res.json({language, code});
 });
 
