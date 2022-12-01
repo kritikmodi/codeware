@@ -9,7 +9,7 @@ app.get('/', (req,res) => {
    return res.json({GET: "Request!"});
 });
 
-app.post('/run', (req,res) => {
+app.post('/run', async (req,res) => {
    const {language,code} = req.body;
    language = "java";
    
