@@ -1,5 +1,6 @@
 const express = require("express");
 
+const {generateFile} = require('./generateFile');
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
@@ -16,8 +17,10 @@ app.post('/run', async (req,res) => {
    if(code === undefined){
       return res.status(404).json({success: false, error: "Empty code body!"});
    }
+
+   const filepath = generateFile(language, code);
    
-   return res.json({language, code});
+   return res.json({filepath});
 });
 
 app.listen(5000, () => {
