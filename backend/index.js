@@ -17,7 +17,7 @@ app.post('/run', async (req,res) => {
       return res.status(404).json({success: false, error: "Empty code body!"});
    }
 
-   const filepath = generateFile(language, code);
+   const filepath = await generateFile(language, code);
    
    return res.json({filepath});
 });
