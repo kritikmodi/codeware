@@ -12,7 +12,6 @@ app.get('/', (req,res) => {
 
 app.post('/run', async (req,res) => {
    const {language,code} = req.body;
-   language = "java";
    
    if(code === undefined){
       return res.status(404).json({success: false, error: "Empty code body!"});
