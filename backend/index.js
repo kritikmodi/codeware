@@ -1,9 +1,11 @@
 const express = require("express");
 
 const {generateFile} = require('./generateFile');
+const {executeCpp} = require("./executeCpp");
+
 const app = express();
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.get('/', (req,res) => {
@@ -19,6 +21,8 @@ app.post('/run', async (req,res) => {
 
    const filepath = await generateFile(language, code);
    
+   const output = await executeCpp(filepath);
+
    return res.json({filepath});
 });
 
