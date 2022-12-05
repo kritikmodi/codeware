@@ -23,7 +23,7 @@ app.post('/run', async (req,res) => {
    
    const output = await executeCpp(filepath);
 
-   return res.json({filepath});
+   return res.json({filepath,output});
 });
 
 app.listen(5000, () => {
