@@ -3,7 +3,7 @@ const express = require("express");
 const {generateFile} = require('./generateFile');
 const app = express();
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.get('/', (req,res) => {
