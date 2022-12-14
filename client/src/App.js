@@ -10,14 +10,6 @@ function App() {
       <button>Submit</button>
       </br>
     </div>
-    <div className="Codeware">
-      <h1>Codeware</h1>
-      <textarea></textarea>
-      <br>
-      <button>Test</button>
-      </br>
-    </div>
-
   );
 }
 
