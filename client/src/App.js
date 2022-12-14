@@ -1,7 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
 
 function App() {
+
+  const [code,setCode] = useState('');
+
   return (
     <div className="App">
       <h1>Online Code Compiler</h1>
