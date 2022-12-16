@@ -6,14 +6,16 @@ function App() {
 
   const [code,setCode] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
 
     const payload = {
       language : "cpp",
       code
     };
     
-    console.log(code);
+    const output = await axios.post("https://localhost:5000/run", payload);
+    
+    console.log(output);
   }
 
   return (
