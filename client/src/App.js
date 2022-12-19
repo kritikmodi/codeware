@@ -15,6 +15,7 @@ function App() {
     };
     
     const {data} = await axios.post("https://localhost:5000/run", payload);
+    setOutput(data.output);
   }
 
   return (
