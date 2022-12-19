@@ -13,9 +13,7 @@ function App() {
       code
     };
     
-    const output = await axios.post("https://localhost:5000/run", payload);
-    
-    console.log(output);
+    const {data} = await axios.post("https://localhost:5000/run", payload);
   }
 
   return (
