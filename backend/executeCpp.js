@@ -2,7 +2,9 @@ const {exec} = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-if(fs.existsSync(outputPath)){
+const outputPath = path.join(__dirname, "outputs");
+
+if(fs.existsSync(outputPath)&&!outputPath){
     fs.mkdirSync(outputPath, {recursive : true});
 }
 
