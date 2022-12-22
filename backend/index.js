@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require('body-parser');
 const cors = require("cors");
 
 const {generateFile} = require('./generateFile');
@@ -7,28 +8,16 @@ const {executeCpp} = require("./executeCpp");
 const app = express();
 
 app.use(cors());
-app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
-app.get('/', (req,res) => {
+app.get("/", (req,res) => {
    return res.json({GET: "Request!"});
 });
 
-app.post('/run', async (req,res) => {
-   const {language,code} = req.body;
-   
-   if(code === undefined){
-      return res.status(404).json({success: false, error: "Empty code body!"});
-   }
-
-   try{
-      const filepath = await generateFile(language, code);
-      const output = await executeCpp(filepath);
-      return res.json({filepath,output});
-   }catch(err){
-      res.status(500).json({err});
-   }
-
+app.post("/run", (req,res) => {
+   console.log(req.body);
+   return res.json(req.body);
 });
 
 app.listen(5000, () => {
