@@ -19,7 +19,7 @@ function App() {
       console.log({data});
       setOutput(data.output);
     }catch(err){
-      console.log(err.response);
+      
     }
   }
 
