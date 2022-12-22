@@ -16,8 +16,12 @@ app.get("/", (req,res) => {
 });
 
 app.post("/run", (req,res) => {
-   console.log(req.body);
-   return res.json(req.body);
+   const {language="cpp",code} = req.body;
+
+   if(!code)
+   return res.status(400).json({success: false, error: "Empty code body!"});
+
+   return res.json({language,code});
 });
 
 app.listen(5000, () => {
