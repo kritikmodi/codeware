@@ -22,9 +22,17 @@ app.post("/run", async (req,res) => {
       return res.status(400).json({success: false, error: "Empty code body!"});
    }
 
-   const filepath = await generateFile(language,code);
+   try{
+      
+      const filepath = await generateFile(language,code);
 
-   return res.json({filepath});
+      const output = await executeCpp(filepath);
+
+      return res.json({filepath,output});
+
+   }catch(err){
+      res.status(500).json({err});
+   }
 });
 
 app.listen(5000, () => {
