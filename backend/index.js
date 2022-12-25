@@ -1,5 +1,13 @@
+// Express is the framework being used to build the REST API.
 const express = require("express");
+
+// BodyParser library is required for parsing the input to the backend in the correct format(urlencoded form).
+
 const bodyParser = require('body-parser');
+
+// CORS stands for Cross-Origin-Resource-Sharing. The browser by default blocks intra-port communication.
+// We need this package to bypass this setting and allow communication between localhost:5000 and localhost:3000.
+
 const cors = require("cors");
 
 const {generateFile} = require('./generateFile');
