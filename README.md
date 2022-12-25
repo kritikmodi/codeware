@@ -1,10 +1,10 @@
 # codeware
 
-Codeware is an online IDE for Java, C++ and Python.
+Codeware is an online IDE for C++.
 
-Building it using Node, Express and React!
+Built using NodeJS, ExpressJS and ReactJS!
 
-### To run on your machine :
+### To run this project on your machine :
 
 1. Clone the repo using `git clone https://github.com/kritikmodi/codeware.git`.
 2. The _backend_ folder contains the code for the REST API. Navigate to it and run it using `npm start run` or just `npm start`. It'll run on port 5000.
