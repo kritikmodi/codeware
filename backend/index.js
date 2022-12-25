@@ -15,6 +15,12 @@ app.get("/", (req,res) => {
    return res.json({GET: "Request!"});
 });
 
+// A three-way communication takes place :
+// The browser or the client calls the NodeJS backend with a POST request.
+// The NodeJS backend calls the System Shell for execution of the code.
+// The shell executes the provided code and returns the output to the backend which in turn transmits it to the client.
+// Lastly, the output is displayed accordingly.
+
 app.post("/run", async (req,res) => {
    const {language="cpp",code} = req.body;
 
