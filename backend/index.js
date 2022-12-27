@@ -34,6 +34,7 @@ Overall, a three-way communication takes place when the user tries to run a code
 
 */
 
+// This is the post/run route which is responsible for getting the code to the backend.
 app.post("/run", async (req,res) => {
    const {language="cpp",code} = req.body;
 
