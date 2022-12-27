@@ -38,16 +38,20 @@ Overall, a three-way communication takes place when the user tries to run a code
 app.post("/run", async (req,res) => {
    const {language="cpp",code} = req.body;
 
+// The following condition checks if the code body is empty or undefined etc..
    if(!code){
       return res.status(400).json({success: false, error: "Empty code body!"});
    }
 
    try{
       
+      // This variable would contain the filepath of the code through the client.
       const filepath = await generateFile(language,code);
 
+      // This variable stores the output of the executed code.
       const output = await executeCpp(filepath);
-
+      
+      // Both the filepath and the output are returned back to the calling function.
       return res.json({filepath,output});
 
    }catch(err){
@@ -55,6 +59,7 @@ app.post("/run", async (req,res) => {
    }
 });
 
+// The backend can be made to run on the any desired + available port. Here the port number is 5000.
 app.listen(5000, () => {
    console.log('Listening on port 5000!');
 });
