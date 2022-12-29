@@ -1,3 +1,4 @@
+// Th exec module is used to execute shell commands through our own scripts.
 const {exec} = require('child_process');
 const fs = require('fs');
 const path = require('path');
