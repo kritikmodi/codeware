@@ -1,4 +1,7 @@
+// This is the main file of the frontend.
+
 import './App.css';
+// 'useState' hooks are used for storing and updating a variables value based on certain conditions.
 import React, {useState} from 'react';
 import axios from 'axios';
 
