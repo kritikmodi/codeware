@@ -3,6 +3,7 @@
 import './App.css';
 // 'useState' hooks are used for storing and updating a variables value based on certain conditions.
 import React, {useState} from 'react';
+// 'Axios' is a promised based HTTP client for Javascript which is used to handle HTTP requests.
 import axios from 'axios';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     }
   }
 
+  // The function App() returns a HTML snippet, the one which would be displayed on the landing page of the website.
   return (
     <div className="App">
       <br/>
@@ -38,4 +40,5 @@ function App() {
   );
 }
 
+// The 'default' keyword is used only once to export a particular function or variable without having to use {}.
 export default App;
