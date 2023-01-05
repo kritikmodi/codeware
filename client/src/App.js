@@ -12,7 +12,7 @@ function App() {
   const [code,setCode] = useState("");
   // This useState hook is used for updating the output once computed.
   const [output,setOutput] = useState("");
-
+  // This useState hook is used for updating the programming language for the compiler.
   const [language,setLanguage] = useState("cpp");
 
   const handleSubmit = async () => {
