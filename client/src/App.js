@@ -36,11 +36,13 @@ function App() {
       <br/>
       <h1>Codeware</h1>
       <br/>
-      <select>
-        <option>Java</option>
-        <option>C++</option>
-        <option>Python</option>
-      </select>
+      <div>
+        <select>
+          <option>Java</option>
+          <option>C++</option>
+          <option>Python</option>
+        </select>
+      </div>
       <textarea rows="20" cols="75" value={code} onChange={(e)=>{setCode(e.target.value);}} placeholder="Type your code here"></textarea>
       <br/><br/><br/>
       <button onClick={handleSubmit}>Run code</button>
