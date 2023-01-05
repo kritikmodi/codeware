@@ -38,7 +38,7 @@ function App() {
       <br/>
       <div>
         <label>Language : </label>
-        <select>
+        <select value={language} onChange={(e)=>{setLanguage(e.target.value);}}>
           <option>Java</option>
           <option>C++</option>
           <option>Python</option>
