@@ -36,6 +36,7 @@ function App() {
       <br/>
       <h1>Codeware</h1>
       <br/>
+      <br/>
       <div>
         <label>Language : </label>
         <select value={language} onChange={(e)=>{setLanguage(e.target.value);}}>
@@ -44,6 +45,7 @@ function App() {
           <option>Python</option>
         </select>
       </div>
+      <br/>
       <br/>
       <textarea rows="20" cols="75" value={code} onChange={(e)=>{setCode(e.target.value);}} placeholder="Type your code here"></textarea>
       <br/><br/><br/>
