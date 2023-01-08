@@ -14,6 +14,7 @@ function App() {
   const [output,setOutput] = useState("");
   // This useState hook is used for updating the programming language for the compiler.
   const [language,setLanguage] = useState("cpp");
+  const [comp,setComp] = useState("comp1");
 
   const handleSubmit = async () => {
 
