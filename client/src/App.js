@@ -14,7 +14,6 @@ function App() {
   const [output,setOutput] = useState("");
   // This useState hook is used for updating the programming language for the compiler.
   const [language,setLanguage] = useState("cpp");
-  const [comp,setComp] = useState("comp1");
 
   const handleSubmit = async () => {
 
@@ -39,7 +38,8 @@ function App() {
       <br/>
       <div>
         <label>Language : </label>
-        <select value={language} onChange={(e)=>{setLanguage(e.target.value);}}>
+        <select value={language} onChange={(e)=>{setLanguage(e.target.value);
+                                                console.log(e.target.value);}}>
           <option>Java</option>
           <option>C++</option>
           <option>Python</option>
