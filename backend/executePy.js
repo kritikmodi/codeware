@@ -3,11 +3,6 @@ const {exec} = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-// If the outputs folder is not present at the specified path, it would be created automatically.
-if(!fs.existsSync(outputPath)){
-    fs.mkdirSync(outputPath, {recursive : true});
-}
-
 // The following function is responsible for executing the cpp code using the exec command and storing the output in the 'outputs' folder and also returning it back to the client.
 const executeCpp = (filepath) => {
     const jobId = path.basename(filepath).split(".")[0];
