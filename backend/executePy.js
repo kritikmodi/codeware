@@ -3,9 +3,6 @@ const {exec} = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-// This variable stores the path for the 'outputs' folder.
-const outputPath = path.join(__dirname, "outputs");
-
 // If the outputs folder is not present at the specified path, it would be created automatically.
 if(!fs.existsSync(outputPath)){
     fs.mkdirSync(outputPath, {recursive : true});
