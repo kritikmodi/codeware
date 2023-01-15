@@ -6,7 +6,7 @@ const path = require('path');
 // The following function is responsible for executing the cpp code using the exec command and storing the output in the 'outputs' folder and also returning it back to the client.
 const executePy = (filepath) => {
     return new Promise((resolve, reject) => {
-        exec(`g++ ${filepath} -o ${outPath} && cd ${outputPath} && ./${jobId}.out`,
+        exec(`python ${filepath}`,
                 (error, stdout, stderr) => {
                 error && reject({error, stderr});
                 stderr && reject(stderr);
