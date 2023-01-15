@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // The following function is responsible for executing the cpp code using the exec command and storing the output in the 'outputs' folder and also returning it back to the client.
-const executeCpp = (filepath) => {
+const executePy = (filepath) => {
     return new Promise((resolve, reject) => {
         exec(`g++ ${filepath} -o ${outPath} && cd ${outputPath} && ./${jobId}.out`,
                 (error, stdout, stderr) => {
@@ -18,5 +18,5 @@ const executeCpp = (filepath) => {
 
 // The above function is exported using the following function.
 module.exports = {
-    executeCpp
+    executePy
 }
