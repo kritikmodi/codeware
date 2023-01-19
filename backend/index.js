@@ -51,7 +51,16 @@ app.post("/run", async (req,res) => {
       const filepath = await generateFile(language,code);
 
       // This variable stores the output of the executed code.
-      const output = await executeCpp(filepath);
+      let output;
+
+      if(language==="cpp")
+      {
+         output = await executeCpp(filepath);
+      }
+      else
+      {
+         output = await executePy(filepath);
+      }
       
       // Both the filepath and the output are returned back to the calling function.
       return res.json({filepath,output});

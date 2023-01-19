@@ -1,6 +1,5 @@
 // Th exec module is used to execute shell commands through our own scripts.
 const {exec} = require('child_process');
-const fs = require('fs');
 
 // The following function is responsible for executing the python code using the exec command.
 const executePy = (filepath) => {
