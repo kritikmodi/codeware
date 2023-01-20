@@ -25,10 +25,14 @@ function App() {
     try{
       const {data} = await axios.post("http://localhost:5000/run", payload);
       setOutput(data.output);
-    }catch(err){
-      console.log(err.response);
+    }catch({response}){
+      if(response){
+        console.log(response);
+      }
+      else{
+        window.alert("Error connecting to server!");
+      }
     }
-  }
 
   // The function App() returns a HTML snippet, the one which would be displayed on the landing page of the website.
   return (
