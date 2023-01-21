@@ -8,6 +8,6 @@ Built using NodeJS, ExpressJS and ReactJS!
 
 1. Clone the repo using `git clone https://github.com/kritikmodi/codeware.git`.
 2. The _backend_ folder contains the code for the REST API. Navigate to it and run it using `npm start run` or just `npm start`. It'll run on port 5000.
-3. The _client_ folder contains the code for the frontend. Navigate to it and run it using `yarn start`. It'll run on port 3000 or port 3001 according to the availability.
+3. The _client_ folder contains the code for the frontend. Navigate to it and run it using `yarn start`. It'll run on port 3000 or port 3001 as per the availability.
 4. Now the IDE is ready to use. Type some code in **C++** and click on the **Run** button to execute it.
 5. That's it for now, but more features are in progress! :)
