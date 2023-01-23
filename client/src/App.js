@@ -28,7 +28,7 @@ function App() {
     }catch({response}){
       if(response){
         const errMsg=response.data.err.stderr;
-        console.log(response);
+        setOutput(errMsg);
       }
       else{
         window.alert("Error connecting to server!");
