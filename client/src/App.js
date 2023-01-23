@@ -27,6 +27,7 @@ function App() {
       setOutput(data.output);
     }catch({response}){
       if(response){
+        const errMsg=response.data.err.stderr;
         console.log(response);
       }
       else{
