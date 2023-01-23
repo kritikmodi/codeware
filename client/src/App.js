@@ -34,6 +34,7 @@ function App() {
         window.alert("Error connecting to server!");
       }
     }
+  }
 
   // The function App() returns a HTML snippet, the one which would be displayed on the landing page of the website.
   return (
@@ -58,6 +59,7 @@ function App() {
     </div>
   );
 }
+
 
 // The 'default' keyword is used only once to export a particular function or variable without having to use {}.
 export default App;
