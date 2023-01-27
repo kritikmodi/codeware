@@ -29,10 +29,9 @@ function App() {
       if(response){
         const errMsg=response.data.err.stderr;
         setOutput(errMsg);
-        window.alert("Output processing, please wait!");
       }
       else{
-        window.alert("Error connecting to server!");
+        setOutput("Error connecting to server!");
       }
     }
     
