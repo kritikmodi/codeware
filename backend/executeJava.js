@@ -12,7 +12,7 @@ if(!fs.existsSync(outputPath)){
 // The following function is responsible for executing the Java code using the exec command.
 const executeJava = (filepath) => {
     const jobId = path.basename(filepath).split(".")[0];
-    const outPath = path.join(outputPath, `${jobId}.out`);
+    const outPath = path.join(outputPath, `${jobId}.class`);
     return new Promise((resolve, reject) => {
         exec(`javac ${filepath} -o ${outPath} && cd ${outputPath} && ./${jobId}.class`,
                 (error, stdout, stderr) => {
