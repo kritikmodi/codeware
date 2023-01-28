@@ -1,12 +1,20 @@
 // Th exec module is used to execute shell commands through our own scripts.
 const {exec} = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+const outputPath = path.join(__dirname, "outputs");
+
+if(!fs.existsSync(outputPath)){
+    fs.mkdirSync(outputPath, {recursive : true});
+}
 
 // The following function is responsible for executing the Java code using the exec command.
 const executeJava = (filepath) => {
     const jobId = path.basename(filepath).split(".")[0];
     const outPath = path.join(outputPath, `${jobId}.out`);
     return new Promise((resolve, reject) => {
-        exec(`javac ${filepath}`,
+        exec(`javac ${filepath} -o ${outPath} && cd ${outputPath} && ./${jobId}.out`,
                 (error, stdout, stderr) => {
                 error && reject({error, stderr});
                 stderr && reject(stderr);
