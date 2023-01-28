@@ -3,6 +3,8 @@ const {exec} = require('child_process');
 
 // The following function is responsible for executing the Java code using the exec command.
 const executeJava = (filepath) => {
+    const jobId = path.basename(filepath).split(".")[0];
+    const outPath = path.join(outputPath, `${jobId}.out`);
     return new Promise((resolve, reject) => {
         exec(`javac ${filepath}`,
                 (error, stdout, stderr) => {
