@@ -18,11 +18,15 @@ if(!fs.existsSync(dirCodes)){
 
 // The following function generates a cpp file inside the 'dircodes' folder and writes the received code in it.
 const generateFile = async (format, content) => {
-  const jobId = uuid();
-  const filename = `${jobId}.${format}`;
-  const filepath = path.join(dirCodes, filename);
-  await fs.writeFileSync(filepath, content);
-  return filepath;
+    let jobId;
+    if(format!="java")
+    jobId = uuid();
+    else
+    jobId = "Main";
+    const filename = `${jobId}.${format}`;
+    const filepath = path.join(dirCodes, filename);
+    await fs.writeFileSync(filepath, content);
+    return filepath;
 };
 
 // The module.exports section contains the functions which are allowed to be 'exported' or used by external scripts or functions.
