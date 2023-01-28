@@ -1,8 +1,5 @@
 // Th exec module is used to execute shell commands through our own scripts.
 const {exec} = require('child_process');
-const fs = require('fs');
-const path = require('path');
-
 
 // The following function is responsible for executing the Java code using the exec command.
 const executeJava = (filepath) => {
