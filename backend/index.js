@@ -12,6 +12,7 @@ const cors = require("cors");
 
 const {generateFile} = require('./generateFile');
 const {executeCpp} = require("./executeCpp");
+const {executePy} = require("./executePy");
 
 const app = express();
 
