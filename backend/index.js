@@ -61,6 +61,10 @@ app.post("/run", async (req,res) => {
       {
          output = await executePy(filepath);
       }
+      else if(language==="java")
+      {
+         output = await executeJava(filepath);
+      }
       
       // Both the filepath and the output are returned back to the calling function.
       return res.json({filepath,output});
