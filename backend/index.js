@@ -17,6 +17,11 @@ const {executeJava} = require("./executeJava");
 
 const app = express();
 
+var PrettyError = require('pretty-error');
+var pe = new PrettyError();
+var renderedError = pe.render(new Error('Some error message'));
+console.log(renderedError);
+
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
