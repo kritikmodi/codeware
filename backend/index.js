@@ -19,8 +19,6 @@ const app = express();
 
 var PrettyError = require('pretty-error');
 var pe = new PrettyError();
-var renderedError = pe.render(new Error('Some error message'));
-console.log(renderedError);
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -75,6 +73,8 @@ app.post("/run", async (req,res) => {
       return res.json({filepath,output});
 
    }catch(err){
+      var renderedError = pe.render(new Error(err));
+      console.log(renderedError);
       res.status(500).json({err});
    }
 });
