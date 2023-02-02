@@ -73,8 +73,6 @@ app.post("/run", async (req,res) => {
       return res.json({filepath,output});
 
    }catch(err){
-      var renderedError = pe.render(new Error(err));
-      console.log(renderedError);
       res.status(500).json({err});
    }
 });
