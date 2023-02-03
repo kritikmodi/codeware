@@ -13,7 +13,7 @@ if(!fs.existsSync(outputPath)){
 const executeJava = (filepath) => {
     const jobId = path.basename(filepath).split(".")[0];
     return new Promise((resolve, reject) => {
-        exec(`javac ${filepath} && cd ${outputPath} && ./${jobId}.class`,
+        exec(`javac ${filepath} && cd ${outputPath} && java ${jobId}`,
                 (error, stdout, stderr) => {
                 error && reject({error, stderr});
                 stderr && reject(stderr);
