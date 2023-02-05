@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 
 const cors = require("cors");
 
+const mongoose = require("mongoose");
+
 const {generateFile} = require('./generateFile');
 const {executeCpp} = require("./executeCpp");
 const {executePy} = require("./executePy");
