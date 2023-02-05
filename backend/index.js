@@ -22,6 +22,13 @@ const app = express();
 var PrettyError = require('pretty-error');
 var pe = new PrettyError();
 
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/test');
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
