@@ -25,7 +25,12 @@ var pe = new PrettyError();
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/online-code-compiler');
+  await mongoose.connect('mongodb://127.0.0.1:27017/online-code-compiler',
+                         (err)=>{
+    if(err){
+      console.error(err);
+      process.exit(1);
+  });
   // use `await mongoose.connect('mongodb://kritikmodi:xxxxx@127.0.0.1:27017/test');`
 }
 
