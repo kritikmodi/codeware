@@ -15,7 +15,6 @@ const mongoose = require("mongoose");
 const {generateFile} = require('./generateFile');
 const {executeCpp} = require("./executeCpp");
 const {executePy} = require("./executePy");
-const {executeJava} = require("./executeJava");
 
 const app = express();
 
@@ -79,7 +78,7 @@ app.post("/run", async (req,res) => {
       {
          output = await executeCpp(filepath);
       }
-      else if(language==="py")
+      else
       {
          output = await executePy(filepath);
       }
