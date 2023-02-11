@@ -13,6 +13,9 @@ const JobSchema = mongoose.Schema({
     submittedAt: {
         type: Date,
         default: Date.now
+    },
+    startedAt: {
+        type: Date
     }
 });
 
