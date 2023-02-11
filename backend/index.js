@@ -28,14 +28,15 @@ async function main() {
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  },(err)=>{
+  },
+  (err)=>{
     if(err){
       console.error(err);
       process.exit(1);
     }
   console.log("Successfully connected to the MongoDB database!");
-  }
-    );
+   }
+  );
 }
 
 app.use(cors());
