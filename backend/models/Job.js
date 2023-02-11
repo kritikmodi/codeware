@@ -5,6 +5,10 @@ const JobSchema = mongoose.Schema({
         type: String,
         required: true,
         enum: ["cpp", "py"]
+    },
+    filepath: {
+        type: String,
+        required: true
     }
 });
 
