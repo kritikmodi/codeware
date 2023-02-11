@@ -9,6 +9,10 @@ const JobSchema = mongoose.Schema({
     filepath: {
         type: String,
         required: true
+    },
+    submittedAt: {
+        type: Date,
+        default: Date.now
     }
 });
 
