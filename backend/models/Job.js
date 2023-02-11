@@ -16,6 +16,12 @@ const JobSchema = mongoose.Schema({
     },
     startedAt: {
         type: Date
+    },
+    completedAt: {
+        type: Date
+    },
+    output: {
+        type: String
     }
 });
 
