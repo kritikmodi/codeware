@@ -32,10 +32,10 @@ async function main() {
     if(err){
       console.error(err);
       process.exit(1);
+    }
+  console.log("Successfully connected to the MongoDB database!");
   }
-    console.log("Successfully connected to the MongoDB database!");
     );
-  // use `await mongoose.connect('mongodb://kritikmodi:xxxxx@127.0.0.1:27017/test');`
 }
 
 app.use(cors());
