@@ -16,6 +16,8 @@ const {generateFile} = require('./generateFile');
 const {executeCpp} = require("./executeCpp");
 const {executePy} = require("./executePy");
 
+const Job = require("./models/Job");
+
 const app = express();
 
 var PrettyError = require('pretty-error');
@@ -71,6 +73,8 @@ app.post("/run", async (req,res) => {
       
       // This variable would contain the filepath of the code through the client.
       const filepath = await generateFile(language,code);
+
+      const job = await new Job({language, filepath}).save();
 
       // This variable stores the output of the executed code.
       let output;
