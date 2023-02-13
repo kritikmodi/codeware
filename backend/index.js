@@ -78,6 +78,10 @@ app.post("/run", async (req,res) => {
 
       // This variable stores the output of the executed code.
       let output;
+     
+      job["startedAt"] = new Date();
+      job["submittedAt"] = new Date();
+      job["completedAt"] = new Date();
 
       if(language==="cpp")
       {
