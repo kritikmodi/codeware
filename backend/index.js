@@ -84,6 +84,8 @@ app.post("/run", async (req,res) => {
       job["completedAt"] = new Date();
       job["status"] = "success";
       job["output"] = output;
+     
+      await job.save();
 
       if(language==="cpp")
       {
