@@ -68,13 +68,15 @@ app.post("/run", async (req,res) => {
    if(!code){
       return res.status(400).json({success: false, error: "Empty code body!"});
    }
+  
+   let job;
 
    try{
       
       // This variable would contain the filepath of the code through the client.
       const filepath = await generateFile(language,code);
 
-      const job = await new Job({language, filepath}).save();
+      job = await new Job({language, filepath}).save();
 
       // This variable stores the output of the executed code.
       let output;
@@ -86,6 +88,7 @@ app.post("/run", async (req,res) => {
       job["output"] = output;
      
       await job.save();
+      console.log(job);
 
       if(language==="cpp")
       {
