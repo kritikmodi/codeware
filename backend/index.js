@@ -88,7 +88,6 @@ app.post("/run", async (req,res) => {
       job["output"] = output;
      
       await job.save();
-      console.log(job);
 
       if(language==="cpp")
       {
