@@ -20,10 +20,6 @@ const JobSchema = mongoose.Schema({
     completedAt: {
         type: Date
     },
-    totalTime: {
-        type: String,
-        default : "0.0s"
-    },
     output: {
         type: String
     },
