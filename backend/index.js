@@ -45,7 +45,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
-app.get("/", (req,res) => {
+app.get("/status", async(req,res) => {
    return res.json({GET: "Request!"});
 });
 
