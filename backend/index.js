@@ -46,6 +46,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
 app.get("/status", async(req,res) => {
+   const jobId = req.query.id;
    return res.json({GET: "Request!"});
 });
 
