@@ -50,9 +50,12 @@ app.get("/status", async(req,res) => {
    if(jobId == undefined){
      return res.status(400).json({success : false, error : "Missing Id query param"});
    }
-   console.log(jobId);
-   const job = await new Job.findById(jobId);
-   return res.json({GET: "Request!"});
+   try{
+     console.log(jobId);
+     const job = await new Job.findById(jobId);
+     return res.json({GET: "Request!"});
+   }catch(err){
+   }
 });
 
 /*
