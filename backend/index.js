@@ -55,6 +55,7 @@ app.get("/status", async(req,res) => {
      const job = await new Job.findById(jobId);
      return res.json({GET: "Request!"});
    }catch(err){
+     return res.status(400).json({success : false, error : JSON.stringify(err)});
    }
 });
 
