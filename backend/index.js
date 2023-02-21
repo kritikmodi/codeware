@@ -53,6 +53,9 @@ app.get("/status", async(req,res) => {
    try{
      console.log(jobId);
      const job = await new Job.findById(jobId);
+     if(job == undefined){
+       return res.status(404).json({success : false, error : "Invalid job Id"});
+     }
      return res.json({GET: "Request!"});
    }catch(err){
      return res.status(400).json({success : false, error : JSON.stringify(err)});
