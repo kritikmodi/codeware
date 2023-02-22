@@ -51,7 +51,6 @@ app.get("/status", async(req,res) => {
      return res.status(400).json({success : false, error : "Missing Id query param"});
    }
    try{
-     console.log(jobId);
      const job = await new Job.findById(jobId);
      if(job == undefined){
        return res.status(404).json({success : false, error : "Invalid job Id"});
@@ -119,8 +118,6 @@ app.post("/run", async (req,res) => {
       job["status"] = "error";
       job["output"] = JSON.stringify(err);
       await job.save();
-      console.log(job);
-      // res.status(500).json({err});
    }
 });
 
