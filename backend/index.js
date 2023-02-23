@@ -47,6 +47,7 @@ app.use(express.json());
 
 app.get("/status", async(req,res) => {
    const jobId = req.query.id;
+   console.log("status requested", jobID);
    if(jobId == undefined){
      return res.status(400).json({success : false, error : "Missing Id query param"});
    }
