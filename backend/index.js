@@ -84,7 +84,9 @@ app.post("/run", async (req,res) => {
   
    let job;
   
-   setInterval( ()=>{}, 1000);
+   setInterval(async () => {
+     const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
+     console.log(dataRes);},1000);
 
    try{
       
