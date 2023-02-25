@@ -26,6 +26,11 @@ function App() {
       const {data} = await axios.post("http://localhost:5000/run", payload);
       console.log(data);
       setOutput(data.jobId);
+      
+      setInterval(async () => {
+      const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
+      console.log(dataRes);},1000);
+      
     }catch({response}){
       if(response){
         const errMsg=response.data.err.stderr;
