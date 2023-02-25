@@ -28,8 +28,9 @@ function App() {
       setOutput(data.jobId);
       
       setInterval(async () => {
-      const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
-      console.log(dataRes);},1000);
+        const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
+        const {success,job,error} = dataRes;
+        console.log(dataRes);},1000);
       
     }catch({response}){
       if(response){
