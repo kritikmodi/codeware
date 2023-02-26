@@ -31,9 +31,13 @@ function App() {
         const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
         const {success,job,error} = dataRes;
         if(success){
-          
+          const {status: jobStatus, output: jobOutput} = job;
+          if(jobStatus === "pending")
+            return ;
+          setOutput(jobOutput);
         }else{
-          
+          console.error(error);
+          setOutput(error);
         }
         console.log(dataRes);},1000);
       
