@@ -37,6 +37,7 @@ function App() {
           if(jobStatus === "pending")
             return ;
           setOutput(jobOutput);
+          clearInterval(intervalId);
         }else{
           console.error(error);
           setOutput(error);
