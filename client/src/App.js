@@ -27,7 +27,9 @@ function App() {
       console.log(data);
       setOutput(data.jobId);
       
-      setInterval(async () => {
+      let intervalId;
+      
+      intervalId = setInterval(async () => {
         const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
         const {success,job,error} = dataRes;
         if(success){
