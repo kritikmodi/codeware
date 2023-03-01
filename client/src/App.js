@@ -15,6 +15,7 @@ function App() {
   // This useState hook is used for updating the output once computed.
   const [output,setOutput] = useState("");
   const [status, setStatus] = useState("");
+  const [jobId, setjobId] = useState("");
 
   const handleSubmit = async () => {
 
