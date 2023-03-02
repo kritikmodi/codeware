@@ -27,7 +27,7 @@ function App() {
     try{
       const {data} = await axios.post("http://localhost:5000/run", payload);
       console.log(data);
-      setOutput(data.jobId);
+      setJobId(data.jobId);
       
       let intervalId;
       
