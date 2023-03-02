@@ -77,6 +77,7 @@ function App() {
       <textarea rows="20" cols="75" value={code} onChange={(e)=>{setCode(e.target.value);}} placeholder="Type your code here"></textarea>
       <br/><br/><br/>
       <button onClick={handleSubmit}>Run code</button>
+      <p>{status}</p>
       <p>{output}</p>
     </div>
   );
