@@ -78,6 +78,7 @@ function App() {
       <br/><br/><br/>
       <button onClick={handleSubmit}>Run code</button>
       <p>{status}</p>
+      <p>{jobId && `jobID:${jobId}`}</p>
       <p>{output}</p>
     </div>
   );
