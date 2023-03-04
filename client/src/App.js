@@ -36,6 +36,7 @@ function App() {
         const {success,job,error} = dataRes;
         if(success){
           const {status: jobStatus, output: jobOutput} = job;
+          setStatus(jobStatus);
           if(jobStatus === "pending")
             return ;
           setOutput(jobOutput);
