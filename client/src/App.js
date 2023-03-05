@@ -14,8 +14,8 @@ function App() {
   const [language,setLanguage] = useState("cpp");
   // This useState hook is used for updating the output once computed.
   const [output,setOutput] = useState("");
-  const [status, setStatus] = useState("");
-  const [jobId, setjobId] = useState("");
+//   const [status, setStatus] = useState("");
+//   const [jobId, setjobId] = useState("");
 
   const handleSubmit = async () => {
 
