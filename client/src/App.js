@@ -25,6 +25,9 @@ function App() {
     };
     
     try{
+      setJobId("");
+      setStatus("");
+      setOuput("");
       const {data} = await axios.post("http://localhost:5000/run", payload);
       console.log(data);
       setJobId(data.jobId);
