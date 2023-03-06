@@ -42,6 +42,7 @@ function App() {
           setOutput(jobOutput);
           clearInterval(intervalId);
         }else{
+          setStatus("Error! Please retry!");
           console.error(error);
           setOutput(error);
         }
