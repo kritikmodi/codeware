@@ -45,8 +45,21 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
-app.get("/", (req,res) => {
-   return res.json({GET: "Request!"});
+app.get("/status", async(req,res) => {
+   const jobId = req.query.id;
+   console.log("status requested", jobID);
+   if(jobId == undefined){
+     return res.status(400).json({success : false, error : "Missing Id query param"});
+   }
+   try{
+     const job = await Job.findById(jobId);
+     if(job == undefined){
+       return res.status(404).json({success : false, error : "Invalid job Id"});
+     }
+     return res.status(200).json({success : true, job});
+   }catch(err){
+     return res.status(400).json({success : false, error : JSON.stringify(err)});
+   }
 });
 
 /*
@@ -68,16 +81,24 @@ app.post("/run", async (req,res) => {
    if(!code){
       return res.status(400).json({success: false, error: "Empty code body!"});
    }
+  
+   let job;
 
    try{
       
       // This variable would contain the filepath of the code through the client.
       const filepath = await generateFile(language,code);
 
-      const job = await new Job({language, filepath}).save();
+      job = await new Job({language, filepath}).save();
 
       // This variable stores the output of the executed code.
       let output;
+     
+      // job["startedAt"] = new Date();
+      // job["submittedAt"] = new Date();
+      job["completedAt"] = new Date();
+      job["status"] = "success";
+      job["output"] = output;
 
       if(language==="cpp")
       {
@@ -92,7 +113,10 @@ app.post("/run", async (req,res) => {
       return res.json({filepath,output});
 
    }catch(err){
-      res.status(500).json({err});
+      job["completedAt"] = new Date();
+      job["status"] = "error";
+      job["output"] = JSON.stringify(err);
+      await job.save();
    }
 });
 

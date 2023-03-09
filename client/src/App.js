@@ -14,6 +14,8 @@ function App() {
   const [language,setLanguage] = useState("cpp");
   // This useState hook is used for updating the output once computed.
   const [output,setOutput] = useState("");
+  const [status, setStatus] = useState("");
+  const [jobId, setjobId] = useState("");
 
   const handleSubmit = async () => {
 
@@ -23,8 +25,32 @@ function App() {
     };
     
     try{
+      setJobId(jobId);
+      setStatus(jobStatus);
+      setOuput(output);
       const {data} = await axios.post("http://localhost:5000/run", payload);
-      setOutput(data.output);
+      console.log(data);
+      setJobId(data.jobId);
+      
+      let intervalId;
+      
+      intervalId = setInterval(async () => {
+        const {data: dataRes} = await axios.get("http://localhost:5000/status",{params: {id: data.jobId}});
+        const {success,job,error} = dataRes;
+        if(success){
+          const {status: jobStatus, output: jobOutput} = job;
+          setStatus(jobStatus);
+          if(jobStatus === "pending")
+            return ;
+          setOutput(jobOutput);
+          clearInterval(intervalId);
+        }else{
+          setStatus("Error! Please retry!");
+          console.error(error);
+          setOutput(error);
+        }
+        console.log(dataRes);},1000);
+      
     }catch({response}){
       if(response){
         const errMsg=response.data.err.stderr;
@@ -56,6 +82,8 @@ function App() {
       <textarea rows="20" cols="75" value={code} onChange={(e)=>{setCode(e.target.value);}} placeholder="Type your code here"></textarea>
       <br/><br/><br/>
       <button onClick={handleSubmit}>Run code</button>
+      <p>{status}</p>
+      <p>{jobId && `jobID:${jobId}`}</p>
       <p>{output}</p>
     </div>
   );
