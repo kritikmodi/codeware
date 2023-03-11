@@ -91,6 +91,10 @@ app.post("/run", async (req,res) => {
       const filepath = await generateFile(language,code);
 
       job = await new Job({language, filepath}).save();
+     
+      const jobId = job["_id"];
+      addJobToQueue(jobId);
+      console.log(job);
 
       // This variable stores the output of the executed code.
       let output;
