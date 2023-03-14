@@ -12,6 +12,8 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
     if(job === undefined){
         throw Error("Job not found!");
     }
+    console.log("Fetched Job", job);
+    return true;
 });
 
 const addJobToQueue = async(jobId) => {
