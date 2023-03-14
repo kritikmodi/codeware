@@ -3,6 +3,8 @@ const jobQueue = new Queue('job-queue');
 
 const NUM_WORKERS = 5;
 
+const Job = require('./models/Job');
+
 jobQueue.process(NUM_WORKERS, async ({data}) => {
     console.log(data);
 });
