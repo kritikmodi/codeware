@@ -3,7 +3,7 @@ const jobQueue = new Queue('job-queue');
 
 const NUM_WORKERS = 5;
 
-jobQueue.process(NUM_WORKERS, async (data) => {
+jobQueue.process(NUM_WORKERS, async ({data}) => {
     console.log(data);
 });
 
