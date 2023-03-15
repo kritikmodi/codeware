@@ -16,6 +16,10 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
     return true;
 });
 
+jobQueue.on('failed', (error) => {
+    console.log(error.data.id, "failed", error.failedReason);
+});
+
 const addJobToQueue = async(jobId) => {
     await jobQueue.add({id:jobId});
 };
