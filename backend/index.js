@@ -99,29 +99,6 @@ app.post("/run", async (req,res) => {
       // This variable stores the output of the executed code.
       let output;
      
-      job["completedAt"] = new Date();
-      job["status"] = "success";
-      job["output"] = output;
-      
-      await job.save();
-
-      if(language==="cpp")
-      {
-         output = await executeCpp(filepath);
-      }
-      else
-      {
-         output = await executePy(filepath);
-      }
-      
-      // Both the filepath and the output are returned back to the calling function.
-      return res.json({filepath,output});
-
-   }catch(err){
-      job["completedAt"] = new Date();
-      job["status"] = "error";
-      job["output"] = JSON.stringify(err);
-      await job.save();
    }
 });
 
