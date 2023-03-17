@@ -15,6 +15,8 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
     console.log("Fetched Job", job);
     
     try{
+          job["startedAt"] = new Date();
+        
           if(job.language==="cpp")
           {
              output = await executeCpp(filepath);
