@@ -13,6 +13,33 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
         throw Error("Job not found!");
     }
     console.log("Fetched Job", job);
+    
+    try{
+          job["completedAt"] = new Date();
+          job["status"] = "success";
+          job["output"] = output;
+
+          await job.save();
+
+          if(job.language==="cpp")
+          {
+             output = await executeCpp(filepath);
+          }
+          else
+          {
+             output = await executePy(filepath);
+          }
+
+          // Both the filepath and the output are returned back to the calling function.
+          return res.json({filepath,output});
+
+       }catch(err){
+          job["completedAt"] = new Date();
+          job["status"] = "error";
+          job["output"] = JSON.stringify(err);
+          await job.save();
+       }
+    
     return true;
 });
 
