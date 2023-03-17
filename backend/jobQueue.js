@@ -19,11 +19,11 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
         
           if(job.language==="cpp")
           {
-             output = await executeCpp(filepath);
+             output = await executeCpp(job.filepath);
           }
           else
           {
-             output = await executePy(filepath);
+             output = await executePy(job.filepath);
           }
         
           job["completedAt"] = new Date();
@@ -32,14 +32,12 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
 
           await job.save();
 
-          // Both the filepath and the output are returned back to the calling function.
-          return res.json({filepath,output});
-
        }catch(err){
           job["completedAt"] = new Date();
           job["status"] = "error";
           job["output"] = JSON.stringify(err);
           await job.save();
+          console.log(job);
        }
     
     return true;
