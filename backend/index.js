@@ -99,7 +99,9 @@ app.post("/run", async (req,res) => {
       // This variable stores the output of the executed code.
       let output;
      
-   }
+      }catch(err){
+     
+      }
 });
 
 // The backend can be made to run on the any desired + available port. Here the port number is 5000.
