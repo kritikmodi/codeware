@@ -100,7 +100,7 @@ app.post("/run", async (req,res) => {
       let output;
      
       }catch(err){
-     
+        console.log(err.data);
       }
 });
 
