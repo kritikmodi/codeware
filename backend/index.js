@@ -95,9 +95,6 @@ app.post("/run", async (req,res) => {
       const jobId = job["_id"];
       addJobToQueue(jobId);
       console.log(job);
-
-      // This variable stores the output of the executed code.
-      let output;
      
       }catch(err){
         console.log(err.data);
