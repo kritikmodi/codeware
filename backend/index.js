@@ -21,9 +21,6 @@ const Job = require("./models/Job");
 
 const app = express();
 
-var PrettyError = require('pretty-error');
-var pe = new PrettyError();
-
 main().catch(err => console.log(err));
 
 async function main() {
@@ -34,7 +31,6 @@ async function main() {
   },
   (err)=>{
     if(err){
-      console.error(err);
       process.exit(1);
     }
   console.log("Successfully connected to the MongoDB database!");
