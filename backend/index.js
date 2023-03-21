@@ -96,6 +96,8 @@ app.post("/run", async (req,res) => {
       addJobToQueue(jobId);
       console.log(job);
      
+      res.status(201).json({success: true, jobId});
+     
       }catch(err){
         console.log(err.data);
       }
