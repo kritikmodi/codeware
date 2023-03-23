@@ -95,6 +95,7 @@ app.post("/run", async (req,res) => {
       res.status(201).json({success: true, jobId});
      
       }catch(err){
+        return res.status(500).json({success: false, err: JSON.stringify(err)});
       }
 });
 
