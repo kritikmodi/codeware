@@ -17,8 +17,9 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
     console.log("Fetched Job", job);
     
     try{
+
           job["startedAt"] = new Date();
-        
+          
           if(job.language==="cpp")
           {
              output = await executeCpp(job.filepath);
@@ -35,11 +36,13 @@ jobQueue.process(NUM_WORKERS, async ({data}) => {
           await job.save();
 
        }catch(err){
+
           job["completedAt"] = new Date();
           job["status"] = "error";
           job["output"] = JSON.stringify(err);
           await job.save();
           console.log(job);
+          
        }
     
     return true;

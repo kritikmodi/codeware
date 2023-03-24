@@ -13,6 +13,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const {generateFile} = require('./generateFile');
+
 const {addJobToQueue} = require("./jobQueue");
 
 const Job = require("./models/Job");
@@ -22,6 +23,7 @@ const app = express();
 main().catch(err => console.log(err));
 
 async function main() {
+
   await mongoose.connect('mongodb://127.0.0.1:27017/online-code-compiler',
   {
     useNewUrlParser: true,
@@ -34,6 +36,7 @@ async function main() {
   console.log("Successfully connected to the MongoDB database!");
    }
   );
+  
 }
 
 app.use(cors());
