@@ -9,13 +9,13 @@ import axios from 'axios';
 function App() {
 
   // This useState hook is used for saving the code state.
-  const [code,setCode] = useState("");
+  const [code,setCode] = useState("null");
   // This useState hook is used for updating the programming language for the compiler.
   const [language,setLanguage] = useState("cpp");
   // This useState hook is used for updating the output once computed.
-  const [output,setOutput] = useState("");
-  const [status, setStatus] = useState("");
-  const [jobId, setjobId] = useState("");
+  const [output,setOutput] = useState("null");
+  const [status, setStatus] = useState("pending");
+  const [jobId, setjobId] = useState("default");
 
   const handleSubmit = async () => {
 
