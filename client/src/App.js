@@ -2,9 +2,11 @@
 
 import './App.css';
 // 'useState' hooks are used for storing and updating a variables value based on certain conditions.
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 // 'Axios' is a promised based HTTP client for Javascript which is used to handle HTTP requests.
 import axios from 'axios';
+
+import stubs from './defaultStubs';
 
 function App() {
 
