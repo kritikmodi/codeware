@@ -18,6 +18,8 @@ function App() {
   const [output,setOutput] = useState("null");
   const [status, setStatus] = useState("pending");
   const [jobId, setjobId] = useState("default");
+  
+  useEffect(() => {}, [language]);
 
   const handleSubmit = async () => {
 
