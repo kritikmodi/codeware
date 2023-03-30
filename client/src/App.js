@@ -19,7 +19,9 @@ function App() {
   const [status, setStatus] = useState("pending");
   const [jobId, setjobId] = useState("default");
   
-  useEffect(() => {}, [language]);
+  useEffect(() => {
+    setCode(stubs[language]);
+  }, [language]);
 
   const handleSubmit = async () => {
 
