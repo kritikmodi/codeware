@@ -79,7 +79,10 @@ function App() {
         <label>Language : </label>
         <select value={language} onChange={(e)=>{
           let response = window.confirm("WARNING! Your current code will be lost if you change your language.");
-          setLanguage(e.target.value);}}>
+          setLanguage(e.target.value);
+          if(response)
+          setLanguage(e.target.value);
+          }}>
           <option value="java">Java</option>
           <option value="cpp">C++</option>
           <option value="py">Python</option>
