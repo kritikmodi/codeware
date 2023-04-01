@@ -83,7 +83,6 @@ function App() {
           if(response)
           setLanguage(e.target.value);
           }}>
-          <option value="java">Java</option>
           <option value="cpp">C++</option>
           <option value="py">Python</option>
         </select>
