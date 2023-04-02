@@ -78,7 +78,7 @@ function App() {
       <div>
         <label>Language : </label>
         <select value={language} onChange={(e)=>{
-          let response = window.confirm("WARNING! Your current code will be lost if you change your language.");
+          let response = window.confirm("WARNING! Your current code will be lost if you switch your language.");
           setLanguage(e.target.value);
           if(response)
           setLanguage(e.target.value);
